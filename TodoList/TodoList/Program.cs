@@ -8,8 +8,22 @@ namespace TodoList
 {
     class Program
     {
+        private static readonly List<String> Posts = new List<string>();
+
         static void Main(string[] args)
         {
+            ////add post
+            //Posts.Add("asdf asdf asdf");
+            //Posts.Add("asdf 2");
+            //Posts.Add("asdf 3");
+            ////delete post
+            //Posts.Remove(Posts.Last());
+            ////show posts
+            //foreach (var post in Posts)
+            //{
+            //    Console.WriteLine(post);
+            //}
+            
             int userReaction = 0;
             do
             {
@@ -29,23 +43,26 @@ namespace TodoList
                 {
                     case 1:
                         Console.WriteLine("You choosed Add post. Enter your line below");
-                        var one = Console.ReadLine();
-                        Console.WriteLine("You wrote: {0}", one);
+                        var enteredLine = Console.ReadLine();
+                        Posts.Add(enteredLine);
+                        Console.WriteLine("You wrote: {0}", enteredLine);
                         Console.WriteLine("post saved successfully");
                         break;
                     case 2:
                         Console.WriteLine("You choosed Delete post");
+                        Posts.Remove(Posts.Last());
                         Console.WriteLine(" Last post deleted successfully");
                         break;
                     case 3:
                         Console.WriteLine("You choosed Show all posts. Listed below already existing records");
-                        string a = "1998";
-                        string c = "1876";
-                        Console.WriteLine(a);
-                        Console.WriteLine(c);
+                        foreach (var post in Posts)
+                        {
+                            Console.WriteLine(post);
+                        }
                         break;
                 }
-            } while (userReaction != 4);
+            }
+            while (userReaction != 4);
         }
     }
 }
