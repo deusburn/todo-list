@@ -8,5 +8,7 @@ namespace CoreLogic
 {
     class Note
     {
+        public CheckboxState Checkbox;
+        public string Record;
     }
 }
