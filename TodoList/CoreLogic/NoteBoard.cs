@@ -8,5 +8,6 @@ namespace CoreLogic
 {
     class NoteBoard
     {
+        public List<Note> Notes = new List<Note>();
     }
 }
