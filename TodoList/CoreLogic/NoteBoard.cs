@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoreLogic
 {
-    class NoteBoard
+    public class NoteBoard
     {
         public List<Note> Notes = new List<Note>();
     }

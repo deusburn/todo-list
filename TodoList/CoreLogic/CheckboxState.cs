@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoreLogic
 {
-    enum CheckboxState
+    public enum CheckboxState
     {
         Checked,
         Unchecked

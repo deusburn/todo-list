@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoreLogic
 {
-    class Note
+    public class Note
     {
         public CheckboxState Checkbox;
         public string Record;
