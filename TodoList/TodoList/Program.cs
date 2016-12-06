@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CoreLogic;
+using System.IO;
 
 namespace TodoList
 {
@@ -44,6 +45,7 @@ namespace TodoList
         {
             int userReaction = 0;
             var board = new NoteBoard();
+            board.Initialize();
 
             do
             {

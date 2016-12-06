@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,18 @@ namespace CoreLogic
     public class NoteBoard
     {
         public List<Note> Notes = new List<Note>();
+
+        public void Initialize()
+        {
+            var lines = File.ReadAllLines(@"C:\Users\Otaman\Documents\todo-list\StoredData.txt");
+//            foreach (var line in lines)
+//            {
+//                var note = new Note();
+//                note.Record = line;
+//                Notes.Add(note);
+//            }
+            Notes.AddRange(lines.Select(l => ConvertStringToNote(l)));
+        }
 
         public void CheckNote()
         {
@@ -52,8 +65,41 @@ namespace CoreLogic
             note.Record = enteredLine;
             Notes.Add(note);
 
+            File.WriteAllLines(@"C:\Users\Otaman\Documents\todo-list\StoredData.txt", 
+                Notes.Select(n => ConvertNoteToString(n)));
+
             Console.WriteLine("You wrote: {0}", enteredLine);
             Console.WriteLine("post saved successfully");
+        }
+
+        private string ConvertNoteToString(Note note)
+        {
+            string result;
+            if (note.Checkbox == CheckboxState.Checked)
+            {
+                result = " [x] " + note.Record;
+            }
+            else
+            {
+                result = " [ ] " + note.Record;
+            }
+            return result;
+        }
+
+        private Note ConvertStringToNote(string raw)
+        {
+            var note = new Note();
+            if (raw.StartsWith(" [x] "))
+            {
+                note.Checkbox = CheckboxState.Checked;
+            }
+            else
+            {
+                note.Checkbox = CheckboxState.Unchecked;
+            }
+            note.Record = raw.Substring(5);
+
+            return note;
         }
     }
 }
