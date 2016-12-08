@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CoreLogic;
 
 namespace TodoListWpfApp
 {
@@ -27,11 +28,16 @@ namespace TodoListWpfApp
 
         private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
-            NotesListBox.ItemsSource = new List<NoteItem>()
+            var board = new NoteBoard();
+            board.Initialize();
+
+            var data = board.Notes.Select(n => new NoteItem()
             {
-                new NoteItem() {Checked = false, Text = "asdf"},
-                new NoteItem() {Checked = true, Text = "asdf2"}
-            };
+                Checked = (n.Checkbox == CheckboxState.Checked),
+                Text = n.Record
+            });
+
+            NotesListBox.ItemsSource = data;
         }
 
         public class NoteItem
