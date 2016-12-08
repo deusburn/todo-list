@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoList", "TodoList\TodoLi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreLogic", "CoreLogic\CoreLogic.csproj", "{D44B7652-31D1-42C9-89CB-BBE5E45441FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoListWpfApp", "TodoListWpfApp\TodoListWpfApp.csproj", "{5F82BC83-0EAD-44EB-B93A-707CB1B19496}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D44B7652-31D1-42C9-89CB-BBE5E45441FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D44B7652-31D1-42C9-89CB-BBE5E45441FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D44B7652-31D1-42C9-89CB-BBE5E45441FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F82BC83-0EAD-44EB-B93A-707CB1B19496}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F82BC83-0EAD-44EB-B93A-707CB1B19496}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F82BC83-0EAD-44EB-B93A-707CB1B19496}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F82BC83-0EAD-44EB-B93A-707CB1B19496}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
