@@ -29,6 +29,9 @@ namespace CoreLogic
             var choseNote = Console.ReadLine();
             var number = Int32.Parse(choseNote);
             Notes[number - 1].Checkbox = CheckboxState.Checked;
+
+            File.WriteAllLines(@"C:\Users\Otaman\Documents\todo-list\StoredData.txt",
+                Notes.Select(n => ConvertNoteToString(n)));
         }
 
         public void ShowNote()
@@ -53,6 +56,9 @@ namespace CoreLogic
 
             Notes.Remove(Notes.Last());
             Console.WriteLine(" Last post deleted successfully");
+
+            File.WriteAllLines(@"C:\Users\Otaman\Documents\todo-list\StoredData.txt",
+                Notes.Select(n => ConvertNoteToString(n)));
         }
 
         public void WriteNote()
