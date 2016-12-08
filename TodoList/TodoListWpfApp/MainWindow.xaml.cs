@@ -24,5 +24,20 @@ namespace TodoListWpfApp
         {
             InitializeComponent();
         }
+
+        private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            NotesListBox.ItemsSource = new List<NoteItem>()
+            {
+                new NoteItem() {Checked = false, Text = "asdf"},
+                new NoteItem() {Checked = true, Text = "asdf2"}
+            };
+        }
+
+        public class NoteItem
+        {
+            public bool Checked { get; set; }
+            public string Text { get; set; }
+        }
     }
 }
