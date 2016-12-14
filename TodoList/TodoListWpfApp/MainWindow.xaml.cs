@@ -21,17 +21,28 @@ namespace TodoListWpfApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        private NoteBoard Board { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+
+            AddNote.Click += AddNote_Click;
+        }
+
+        private void AddNote_Click(object sender, RoutedEventArgs e)
+        {
+            var popup = new AddNoteWindow();
+            popup.Board = Board;
+            popup.Show();
         }
 
         private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
-            var board = new NoteBoard();
-            board.Initialize();
+            Board = new NoteBoard();
+            Board.Initialize();
 
-            var data = board.Notes.Select(n => new NoteItem()
+            var data = Board.Notes.Select(n => new NoteItem()
             {
                 Checked = (n.Checkbox == CheckboxState.Checked),
                 Text = n.Record

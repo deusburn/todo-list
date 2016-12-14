@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TodoListWpfApp"
         mc:Ignorable="d"
         Title="Todo List"
-        Loaded="MainWindow_OnLoaded">
+        Loaded="MainWindow_OnLoaded" Width="500" Height="400">
     <Window.Resources>
         <!--Control colors.-->
         <Color x:Key="WindowColor">#FFE8EDF9</Color>
@@ -219,7 +219,12 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <ListBox x:Name="NotesListBox">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <ListBox x:Name="NotesListBox" Grid.Row="0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -229,5 +234,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
+        <Button x:Name="AddNote" Grid.Row="1" Content="Add note" HorizontalAlignment="Center" Margin="0,16" Padding="20,1"/>
     </Grid>
 </Window>
