@@ -41,8 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CheckboxState.cs" />
+    <Compile Include="INoteBoard.cs" />
     <Compile Include="Note.cs" />
-    <Compile Include="NoteBoard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

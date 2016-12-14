@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CoreLogic;
 
-namespace CoreLogic
+namespace TodoList
 {
-    public class NoteBoard
+    public class NoteBoard : INoteBoard
     {
-        public List<Note> Notes = new List<Note>();
-
         private readonly string _pathToFile = @"C:\Users\Otaman\Documents\todo-list\StoredData.txt";
 
         private readonly string _checkboxCheckedState = " [x] ";
@@ -22,8 +19,12 @@ namespace CoreLogic
                 Notes.Select(n => ConvertNoteToString(n)));
         }
 
+        public List<Note> Notes { get; set; }
+
         public void Initialize()
         {
+            Notes = new List<Note>();
+
             var lines = File.ReadAllLines(_pathToFile);
             Notes.AddRange(lines.Select(l => ConvertStringToNote(l)));
         }
